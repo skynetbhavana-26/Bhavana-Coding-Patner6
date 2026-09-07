@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: remix-coding-partner
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - data-volume:/app/data
+      - uploads-volume:/app/public/uploads
+    restart: unless-stopped
+
+volumes:
+  data-volume:
+  uploads-volume:
